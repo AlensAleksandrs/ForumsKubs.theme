@@ -1,16 +1,21 @@
 {{!--
 Re-usable card for linking to posts
+
+Home / listing image:
+  a) Optional separate image — set Post settings → Facebook card image (og_image).
+     If empty, feature image is used.
+  b) Crop focus — add one internal tag, e.g. #crop-top (see card-image-position.hbs).
 --}}
 
 <article class="{{post_class}} opacity-0 translate-y-4 transition-all duration-700 ease-out fade-slide">
   <a href="{{url}}" class="block h-full">
     <div class="w-full aspect-16/10 overflow-hidden">
       <img
-        src="{{#if feature_image}}{{feature_image}}{{else}}{{asset "images/post_fallback.png"}}{{/if}}"
-        alt=""
+        src="{{#if og_image}}{{og_image}}{{else}}{{#if feature_image}}{{feature_image}}{{else}}{{asset "images/post_fallback.png"}}{{/if}}{{/if}}"
+        alt="{{#if feature_image_alt}}{{feature_image_alt}}{{else}}{{title}}{{/if}}"
         loading="lazy"
         decoding="async"
-        class="w-full h-full object-cover transition-transform duration-300 ease-out transform-gpu [will-change:transform] hover:scale-105"
+        class="w-full h-full object-cover {{> "card-image-position"}} transition-transform duration-300 ease-out transform-gpu [will-change:transform] hover:scale-105"
         width="1600" height="1000" />
     </div>
 

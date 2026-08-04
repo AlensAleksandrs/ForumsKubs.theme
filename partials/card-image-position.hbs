@@ -1,0 +1,12 @@
+{{!--
+Outputs one Tailwind object-position class for homepage cards.
+
+Add ONE internal tag on the post (Post settings → Tags). Create the tag if needed; keep it internal (#).
+
+Vertical (portrait photos):
+  #crop-top | #crop-upper | #crop-center | #crop-lower | #crop-bottom
+
+Horizontal / corners:
+  #crop-left | #crop-right
+  #crop-top-left | #crop-top-right | #crop-bottom-left | #crop-bottom-right
+--}}{{#has tag="#crop-top-left"}}object-left-top{{else}}{{#has tag="#crop-top-right"}}object-right-top{{else}}{{#has tag="#crop-bottom-left"}}object-left-bottom{{else}}{{#has tag="#crop-bottom-right"}}object-right-bottom{{else}}{{#has tag="#crop-top"}}object-top{{else}}{{#has tag="#crop-upper"}}object-[center_25%]{{else}}{{#has tag="#crop-lower"}}object-[center_75%]{{else}}{{#has tag="#crop-bottom"}}object-bottom{{else}}{{#has tag="#crop-left"}}object-left{{else}}{{#has tag="#crop-right"}}object-right{{else}}object-center{{/has}}{{/has}}{{/has}}{{/has}}{{/has}}{{/has}}{{/has}}{{/has}}{{/has}}{{/has}}
